@@ -9,13 +9,14 @@ import jakarta.persistence.*;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
 
     private String nombre;
 
     private String apellidos;
 
-    private Integer celular;
+    private String celular;
 
     private String direccion;
 
