@@ -8,10 +8,9 @@ public class CompraProducto {
   @EmbeddedId
   private CompraProductoPK id;
 
-  //Saber los productos que hay en una compra
 
-  //Unir la tabla de compras
   @ManyToOne
+  @MapsId("idCompra")
   @JoinColumn(name = "id_compra", insertable = false, updatable = false)
   private Compra compra;
 
