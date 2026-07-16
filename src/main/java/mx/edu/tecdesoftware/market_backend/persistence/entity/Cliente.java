@@ -1,6 +1,5 @@
 package mx.edu.tecdesoftware.market_backend.persistence.entity;
 
-
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,30 +9,24 @@ import java.util.List;
 
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer idCliente;
+    private String id;
 
     private String nombre;
-
     private String apellidos;
-
     private String celular;
-
     private String direccion;
-
     @Column(name = "correo_electronico")
     private String correoElectronico;
 
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public String getId() {
+        return id;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -74,5 +67,13 @@ public class Cliente {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 }

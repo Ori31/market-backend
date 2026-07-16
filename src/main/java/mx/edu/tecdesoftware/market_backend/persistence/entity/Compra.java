@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 public class Compra {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
@@ -33,20 +32,20 @@ public class Compra {
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
     private List<CompraProducto> productos;
 
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
-
     public Integer getIdCompra() {
         return idCompra;
     }
 
     public void setIdCompra(Integer idCompra) {
         this.idCompra = idCompra;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public LocalDateTime getFecha() {

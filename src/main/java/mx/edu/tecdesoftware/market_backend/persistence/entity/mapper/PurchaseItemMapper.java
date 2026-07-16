@@ -11,16 +11,15 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface PurchaseItemMapper {
-
     @Mappings({
             @Mapping(source = "id.idProducto", target = "productId"),
             @Mapping(source = "cantidad", target = "quantity"),
             @Mapping(source = "total", target = "total"),
-            @Mapping(source = "estado", target = "active"),
+            @Mapping(source = "estado", target = "active")
     })
     PurchaseItem toPurchaseItem(CompraProducto compraProducto);
 
-    List<PurchaseItem> toPurchaseItems(List<CompraProducto> compraProductos);
+    List<PurchaseItem> toPurchaseItems(List<CompraProducto> comprasProductos);
 
     @InheritInverseConfiguration
     @Mapping(target = "compra", ignore = true)

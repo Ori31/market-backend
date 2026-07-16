@@ -1,7 +1,5 @@
 package mx.edu.tecdesoftware.market_backend.domain;
 
-
-
 public class Category {
     private int categoryId;
     private String category;

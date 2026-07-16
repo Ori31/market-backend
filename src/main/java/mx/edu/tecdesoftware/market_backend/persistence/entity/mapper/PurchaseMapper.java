@@ -11,7 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
 public interface PurchaseMapper {
-
     @Mappings({
             @Mapping(source = "idCompra", target = "purchaseId"),
             @Mapping(source = "idCliente", target = "clientId"),
@@ -19,7 +18,7 @@ public interface PurchaseMapper {
             @Mapping(source = "medioPago", target = "paymentMethod"),
             @Mapping(source = "comentario", target = "comment"),
             @Mapping(source = "estado", target = "status"),
-            @Mapping(source = "productos", target = "items"),
+            @Mapping(source = "productos", target = "purchaseItems")
     })
     Purchase toPurchase(Compra compra);
 
@@ -27,5 +26,6 @@ public interface PurchaseMapper {
 
     @InheritInverseConfiguration
     @Mapping(target = "cliente", ignore = true)
+    @Mapping(target = "idCompra", ignore = true)
     Compra toCompra(Purchase purchase);
 }

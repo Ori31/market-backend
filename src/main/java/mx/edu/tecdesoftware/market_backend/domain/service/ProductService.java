@@ -1,6 +1,5 @@
 package mx.edu.tecdesoftware.market_backend.domain.service;
 
-
 import mx.edu.tecdesoftware.market_backend.domain.Product;
 import mx.edu.tecdesoftware.market_backend.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class ProductService {
-
-
     @Autowired
     private ProductRepository productRepository;
-
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         return productRepository.getAll();
     }
 
@@ -25,8 +20,9 @@ public class ProductService {
         return productRepository.getProduct(productId);
     }
 
-    public Optional<List<Product>> getByCategory(int categoryId){
+    public Optional<List<Product>> getProductByCategory(int categoryId){
         return productRepository.getByCategory(categoryId);
+
     }
 
     public Product save(Product product){
@@ -34,14 +30,27 @@ public class ProductService {
     }
 
     public boolean delete(int productId){
-
-        //Verificar que eciste antes de borrar
-        if(getProduct(productId).isPresent() ) {
+        if(getProduct(productId).isPresent()){
             productRepository.delete(productId);
             return true;
-        }else{
-            return false;
         }
-
+        return false;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

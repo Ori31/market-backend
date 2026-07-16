@@ -2,27 +2,14 @@ package mx.edu.tecdesoftware.market_backend.persistence.crud;
 
 import mx.edu.tecdesoftware.market_backend.persistence.entity.Producto;
 import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
 import java.util.Optional;
 
 public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> {
+    List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
-
-    //Obtener la lista de productos filtrados por
-    //ID de categoria y ordenados ascendentemente por nombre
-    /*
-    SELECT *
-    FROM Categorias
-    WHERE id_categoria = ?
-    ORDER BY Nombre ASC
-     */
-
-    List<Producto> findByCantidadOrderByNombreAsc (int idCategoria);
-
-    //Obtener los productos
+    //Obtener los productos escasos
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado(int cantidad, boolean estado);
-
 
 
 }

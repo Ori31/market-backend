@@ -8,5 +8,6 @@ import java.util.Optional;
 
 public interface CompraCrudRepository extends CrudRepository<Compra, Integer> {
 
+    //Obtener las compras de un cliente
     Optional<List<Compra>> findByIdCliente(String idCliente);
 }
